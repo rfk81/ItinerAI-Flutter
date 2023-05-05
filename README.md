@@ -1,7 +1,7 @@
 # ItinerAI
 
--[Introducción](#introducción)
--[Otros Aspectos](#otros-aspectos)
+- [Introducción](#introducción)
+- [Otros Aspectos](#otros-aspectos)
 
 ## Introducción
 
