@@ -1,4 +1,4 @@
 import 'package:flutter/material.dart';
 
-Color scaffoldBackgroundColor = const Color (0xFF343541);
-Color cardColor = const Color (0xFF444654);
+Color scaffoldBackgroundColor = Color.fromARGB(255, 250, 250, 250);
+Color cardColor = Color.fromARGB(255, 48, 136, 214);

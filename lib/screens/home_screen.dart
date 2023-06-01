@@ -16,6 +16,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final TextEditingController _countryListController = TextEditingController();
+  final TextEditingController suggestController_ = TextEditingController();
   String _selectedDays = '1';
   late TextEditingController textEditingController;
   late FocusNode focusNode;
@@ -43,6 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
         body: Column
         (
+          
           children: 
           [
             Image.asset(
@@ -53,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             Container
                 (
-                  padding: const EdgeInsets.only(left: 5, right: 5, top: 50, bottom: 50),
+                  padding: const EdgeInsets.only(left: 5, right: 5, top: 50, bottom: 30),
                 
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -132,7 +134,25 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Column
                 (
                     crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.end,
+
+                    children:
+                    [
+                      const Text(
+                        'Sugerencias para el viaje:',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      const SizedBox(height: 10.0),
+
+                      Expanded(child: TextFormField(
+                        maxLines: 3,
+                        controller: suggestController_,
+                        decoration: const InputDecoration(
+                          hintText: 'Escribe tus sugerencias',
+                          border: OutlineInputBorder(),
+                        ),
+                      ))
+                    ]
                 ),
               ),
             ),
@@ -167,7 +187,7 @@ Future<void> sendMessageFCT(
    
     
     try {
-      String prompt = 'Muestra una ruta turistica con una serie de actividades que pueda hacer en cada destino a partir del/los destino/s que te proporcionaré y la cantidad de días para el viaje. Destinos: $_countryListController.text y $_selectedDays de días';
+      String prompt = 'Muestra una ruta turistica con una serie de actividades que pueda hacer en cada destino a partir del/los destino/s que te proporcionaré y la cantidad de días para el viaje. Destinos: $_countryListController.text y $_selectedDays de días. También sigue las siguientes sugerencias: $suggestController_';
 
       setState(() {
         textEditingController.clear();
