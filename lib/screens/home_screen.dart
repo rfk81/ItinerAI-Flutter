@@ -20,6 +20,8 @@ class _HomeScreenState extends State<HomeScreen> {
   String _selectedDays = '1';
   late TextEditingController textEditingController;
   late FocusNode focusNode;
+  String itinerarioSugerido='';
+
 
   @override
   void initState() {
@@ -166,7 +168,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       onPressed: () async {
                         Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const ChatScreen()),
+                        MaterialPageRoute(builder: (context) => const ChatScreen(
+
+                        )),
                       );
                       await sendMessageFCT(
                         $model: model,
@@ -187,23 +191,43 @@ Future<void> sendMessageFCT(
    
     
     try {
-      String prompt = 'Muestra una ruta turistica con una serie de actividades que pueda hacer en cada destino a partir del/los destino/s que te proporcionaré y la cantidad de días para el viaje. Destinos: $_countryListController.text y $_selectedDays de días. También sigue las siguientes sugerencias: $suggestController_';
+      String prompt = 'Muestra una ruta turistica con una serie de actividades que pueda hacer en cada destino a partir del/los destino/s que te proporcionaré y la cantidad de días para el viaje. Destinos: $_countryListController.text y $_selectedDays de días. También sigue las siguientes sugerencias: $suggestController_'
+      +'Respecto al itinerario, rellena la siguiente estructura, dentro de las comillas( pero sin mostrar las comillas)'+
+      'siguiendo estrictamente las siguientes instrucciones'+
+      '1. Añade unos gastos estimados hipotéticos correspondientes al total de los días en concepto de cada variable que se muestra en la estructra'+
+      ' Añade los datos en cantidad numérica con el símbolo del €, 2. Hazlo sin alterar la estructura predefinida o los nombres de las variables'+
+      '3. Añade esta estructura 1 sola vez al final del itinerairio completo,'+
+      '4. La estructura es la siguiente: ' +
+              'Vuelos: ""\n' +
+              'Alojamiento: ""\n' +
+              'Transporte: ""\n' +
+              'Comida: ""\n' +
+              'Entradas: ""';
 
       setState(() {
         textEditingController.clear();
         focusNode.unfocus();
+        
       });
-      await chatProvider.sendMessageAndGetAnswers(
+      String itinerario1 = await chatProvider.sendMessageAndGetAnswers(
           msg: prompt, $model: model);
 
-      setState(() {});
+      setState(() {
+        itinerarioSugerido = itinerario1;
+      });
     } catch (error) {
       print(error.toString());
         
       
-    } finally {
+    } 
+
+    
+    
+    finally {
       setState(() {
       });
     }
   }
+
+
 }

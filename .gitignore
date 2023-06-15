@@ -44,5 +44,3 @@ app.*.map.json
 /android/app/release
 
 # Envrioments variable
-
-api_consts.dart

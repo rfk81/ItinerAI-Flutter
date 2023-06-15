@@ -3,6 +3,8 @@ import '../models/chat_model.dart';
 import '../services/api_service.dart';
 
 class ChatProvider with ChangeNotifier {
+
+  
   
   List<ChatModel> chatList = [];
   
@@ -10,7 +12,7 @@ class ChatProvider with ChangeNotifier {
     return chatList;
   }
 
-  Future<void> sendMessageAndGetAnswers(
+  Future<String> sendMessageAndGetAnswers(
       {required String msg, required $model}) async {
 
 // Delete the previous messages
@@ -22,6 +24,8 @@ class ChatProvider with ChangeNotifier {
       );
     chatList.add(response.last); 
     notifyListeners();
+
+    return response.last.msg;
   }
 }
 
