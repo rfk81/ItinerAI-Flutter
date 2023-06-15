@@ -1,0 +1,4 @@
+#Wed Jun 14 22:34:40 CEST 2023
+base.0=C\:\\Users\\Equipo\\Desktop\\itinerai\\build\\app\\intermediates\\dex\\release\\minifyReleaseWithR8\\classes.dex
+renamed.0=classes.dex
+path.0=classes.dex
