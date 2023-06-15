@@ -46,3 +46,5 @@ app.*.map.json
 # Envrioments variable
 
 api_consts.dart
+/constants/api_consts.dart
+*/constants/api_consts.dart
