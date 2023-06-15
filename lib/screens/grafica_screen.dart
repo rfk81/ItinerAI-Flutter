@@ -69,12 +69,11 @@ class GraficaScreen extends StatelessWidget {
   }
 
   List<Budget> extractDataFromMessage(String message) {
-RegExp flightsRegExp = RegExp(r'Vuelos: (?:["€]?([\d.]+)|([\d.]+)["€]?|([\d.]+))');
-RegExp accommodationRegExp = RegExp(r'Alojamiento: (?:["€]?([\d.]+)|([\d.]+)["€]?|([\d.]+))');
-RegExp transportationRegExp = RegExp(r'Transporte: (?:["€]?([\d.]+)|([\d.]+)["€]?|([\d.]+))');
-RegExp foodRegExp = RegExp(r'Comida: (?:["€]?([\d.]+)|([\d.]+)["€]?|([\d.]+))');
-RegExp ticketsRegExp = RegExp(r'Entradas: (?:["€]?([\d.]+)|([\d.]+)["€]?|([\d.]+))');
-
+RegExp flightsRegExp = RegExp(r'Total Vuelos: (?:["€]?([\d.]+)|([\d.]+)["€]?|([\d.]+))');
+RegExp accommodationRegExp = RegExp(r'Total Alojamiento: (?:["€]?([\d.]+)|([\d.]+)["€]?|([\d.]+))');
+RegExp transportationRegExp = RegExp(r'Total Transporte: (?:["€]?([\d.]+)|([\d.]+)["€]?|([\d.]+))');
+RegExp foodRegExp = RegExp(r'Total Comida: (?:["€]?([\d.]+)|([\d.]+)["€]?|([\d.]+))');
+RegExp ticketsRegExp = RegExp(r'Total Entradas: (?:["€]?([\d.]+)|([\d.]+)["€]?|([\d.]+))');
 
 
     double flightsPrice =

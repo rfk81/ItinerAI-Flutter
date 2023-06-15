@@ -192,17 +192,18 @@ Future<void> sendMessageFCT(
     
     try {
       String prompt = 'Muestra una ruta turistica con una serie de actividades que pueda hacer en cada destino a partir del/los destino/s que te proporcionaré y la cantidad de días para el viaje. Destinos: $_countryListController.text y $_selectedDays de días. También sigue las siguientes sugerencias: $suggestController_'
-      +'Respecto al itinerario, rellena la siguiente estructura, dentro de las comillas( pero sin mostrar las comillas)'+
-      'siguiendo estrictamente las siguientes instrucciones'+
-      '1. Añade unos gastos estimados hipotéticos correspondientes al total de los días en concepto de cada variable que se muestra en la estructra'+
-      ' Añade los datos en cantidad numérica con el símbolo del €, 2. Hazlo sin alterar la estructura predefinida o los nombres de las variables'+
-      '3. Añade esta estructura 1 sola vez al final del itinerairio completo,'+
+      +'Además, respecto al itinerario, rellena la siguiente estructura solo 1 vez al final de todo el recorrido, dentro de las comillas( pero sin mostrar las comillas)'+
+      'siguiendo estrictamente las siguientes instrucciones:'+
+      '1. Añade unos gastos estimados hipotéticos correspondientes al total del itineraro en concepto de cada variable que se muestra en la estructra'+
+      '2. Añade los datos en cantidad numérica con el símbolo del €'+
+      '3. Hazlo sin alterar la estructura predefinida o los nombres de las variables'+
       '4. La estructura es la siguiente: ' +
-              'Vuelos: ""\n' +
-              'Alojamiento: ""\n' +
-              'Transporte: ""\n' +
-              'Comida: ""\n' +
-              'Entradas: ""';
+              'Total Vuelos: ""\n' +
+              'Total Alojamiento: ""\n' +
+              'Total Transporte: ""\n' +
+              'Total Comida: ""\n' +
+              'Total Entradas: ""'+
+              'Recuerda mantener la estructura anterior.';
 
       setState(() {
         textEditingController.clear();
